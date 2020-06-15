@@ -15,7 +15,7 @@ class FullPost extends Component {
         if (this.props.id){
 
             if (!this.state.loadedPosts || (this.state.loadedPosts && this.state.loadedPosts.id !== this.props.id)){
-                axios.get('https://jsonplaceholder.typicode.com/posts/'+ this.props.id)
+                axios.get('/posts/'+ this.props.id)
                 .then(response=>{
     
                     //here if you change state in comdidupdate this goes into infinite loop.
@@ -31,7 +31,7 @@ class FullPost extends Component {
     }
 
     deletePostHandler = ( ) => {
-        axios.delete('https://jsonplaceholder.typicode.com/posts/'+ this.props.id)
+        axios.delete('/posts/'+ this.props.id)
         .then(response=>{
             console.log(response);
         });
