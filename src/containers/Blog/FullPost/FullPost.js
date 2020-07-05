@@ -9,13 +9,13 @@ class FullPost extends Component {
         loadedPosts:null
     }
 
-    componentDidUpdate(){
-
+    componentDidMount(){
+        console.log(this.props);
         
-        if (this.props.id){
+        if (this.props.match.params.id){
 
             if (!this.state.loadedPosts || (this.state.loadedPosts && this.state.loadedPosts.id !== this.props.id)){
-                axios.get('/posts/'+ this.props.id)
+                axios.get('/posts/'+ this.props.match.params.id)
                 .then(response=>{
     
                     //here if you change state in comdidupdate this goes into infinite loop.
